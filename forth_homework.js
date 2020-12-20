@@ -30,3 +30,5 @@ for (i=0; i<basket.goods.length; i++) {
 }
 console.log('Сумма товаров в корзине:'+ sum);
 
+
+
