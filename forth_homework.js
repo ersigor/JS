@@ -15,17 +15,18 @@ function num_to_obj(a) {
      return console.log('сотни:'+ numb.sot+ ' десятки:'+ numb.des+' единицы:'+ numb.ed);
 }
 prov(a);
-//2
+//2 
 
-var thing1 = {
-    price: 100,
-    quant: 2,
+var basket = {
+    goods: [
+        {name: 'ball', quant: 2, price: 100},
+        {name: 'doll', quant: 4, price: 500},
+        {name: 'bear', quant: 1, price: 200},
+    ]
 }
-var thing2 = {
-    price: 200,
-    quant: 3,
+sum=0;
+for (i=0; i<basket.goods.length; i++) {
+    sum+=basket.goods[i].quant*basket.goods[i].price;
 }
-sum = thing1.price*thing1.quant;
-alert(sum);
-
+console.log('Сумма товаров в корзине:'+ sum);
 
