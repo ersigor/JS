@@ -1,16 +1,18 @@
 const catalog = {
-    
-    init(){
-        this.render_catalog();
-        this.addToBasket();
-        
-    },
-    catalogId: document.getElementById('catalog'),
+    products :{}, 
     goods: [
         {id: 123, name: 'ball', quant: 2, price: 100},
         {id: 234, name: 'doll', quant: 4, price: 500},
         {id: 345, name: 'bear', quant: 1, price: 200},
     ],
+    init(){
+        this.render_catalog();
+        this.event_handler();
+        
+        
+    },
+    catalogId: document.getElementById('catalog'),
+    
     //рендер каталога
     render_catalog(){
         for (i=0; i<catalog.goods.length; i++) {
@@ -38,28 +40,29 @@ const catalog = {
     },
 
   
-     //Метод добавления в корзину
-    addToBasket() {
+     //Метод добавления id LKZ
+    event_handler() {
         for (i=0; i<catalog.goods.length; i++) {
         const id = this.goods[i].id;
         var el = document.getElementById(id);
-        el.addEventListener("click", function find() {
-        this.catalog.find_element(id);
-        });
+        el.addEventListener("click",addToBasket);
+        };
         
-        }
+        
     },
+    
     //Метод поиска элементов
-    find_element(id) {
-        for (i=0; i<catalog.goods.length; i++) { 
-            alert(id);
-        if (id===this.goods[i].id) {
-            goods_basket.push(this.goods[i]);
-            alert('fgg');}
-            else alert('ЭЛЕМЕНТ НЕ НАЙДЕН');
-    }
-    },
-    }
+    addtoBasket(id) {
+        const id1 = id;
+        for (i=0; i<catalog.goods.length; i++)  {
+         if (id1===this.goods[i].id) {
+            product = this.goods[i].id;}
+            else alert('элемент не найден');
+            alert('fgg');
+    } 
+} 
+}
+    
     
 
 const basket = {
@@ -121,3 +124,4 @@ render_basket(){
 catalog.init();
 basket.show_goods();
 basket.render_basket();
+
